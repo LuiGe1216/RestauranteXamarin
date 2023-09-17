@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Restaurante.Paginas.PaginaListarSedes">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor= "CadetBlue">
+            <Label Text="Lista de Sedes" 
+                   TextColor="Black" 
+                   FontSize="26" 
+                   FontAttributes="Bold" 
+                   Margin="15" 
+                   HorizontalOptions="Center" />
+
+            <ActivityIndicator x:Name="indicator" Color="Green" VerticalOptions="Center" HorizontalOptions="Center"/>
+
+            <Frame BorderColor="SkyBlue" CornerRadius="10" Margin="15" Padding="0">
+                <!-- Lista de sedes -->
+                <ListView x:Name="lsvSede" ItemSelected="lsvSede_ItemSelected" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <!-- Texto más grande y en negrita -->
+                                    <Label Text="{Binding Nombre}" FontSize="Large" FontAttributes="Bold" TextColor="Black" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAgregar" Text="Agregar" Order="Primary" Priority="0" Clicked="btnAgregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>
+    
+

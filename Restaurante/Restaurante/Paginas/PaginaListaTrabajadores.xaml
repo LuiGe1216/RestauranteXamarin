@@ -1,0 +1,69 @@
+﻿ <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Restaurante.Paginas.PaginaListaTrabajadores">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightBlue">
+            <!-- Título centrado, en negrita y con bordes azules -->
+            <Label Text="Lista de Trabajadores" 
+                   TextColor="Black" 
+                   FontSize="26" 
+                   FontAttributes="Bold" 
+                   Margin="15" 
+                   HorizontalOptions="Center" />
+            
+
+
+            <ActivityIndicator x:Name="indicator" Color="Green" VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Grid BackgroundColor="SkyBlue" Margin="18,2" ColumnSpacing="1" RowSpacing="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Títulos de las columnas -->
+                <Label Text="Nombre" TextColor="White" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" />
+                <Label Text="Cargo" TextColor="White" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="1" />
+                <Label Text="DNI" TextColor="White" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="0" Grid.Column="2" />
+            </Grid>
+
+            <Frame BorderColor="SkyBlue"   Margin="15" Padding="0">
+                
+
+                <ListView x:Name="lsvTrabajador" ItemsSource="{Binding Trabajadores}" ItemSelected="lsvTrabajador_ItemSelected" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <!-- Nombre -->
+                                    <Label Text="{Binding Nombre}" FontSize="20" LineBreakMode="WordWrap" TextColor="Black" Margin="10" Grid.Column="0" />
+
+                                    <!-- Cargo -->
+                                    <Label Text="{Binding ocupacion}" FontSize="20" LineBreakMode="WordWrap" TextColor="Black" Margin="10" Grid.Column="1" />
+
+                                    <!-- DNI -->
+                                    <Label Text="{Binding Dni}" FontSize="20" LineBreakMode="WordWrap" TextColor="Black" Margin="10" Grid.Column="2" />
+                                </Grid>
+
+                            </ViewCell>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnAgregar" Text="Agregar" Order="Primary" Priority="0" Clicked="btnAgregar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

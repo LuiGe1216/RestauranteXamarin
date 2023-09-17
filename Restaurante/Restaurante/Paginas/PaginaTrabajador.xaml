@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Restaurante.Paginas.PaginaTrabajador">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BackgroundColor="White">
+                <Label Text="Detalle del Trabajador" 
+                       TextColor="Black" 
+                       FontSize="34"
+                       Margin="0,25,0,0" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="CenterAndExpand" 
+                       VerticalOptions="CenterAndExpand" />
+
+                <Frame BackgroundColor="SkyBlue"
+                       CornerRadius="10" 
+                       Padding="20"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <StackLayout Padding="15">
+                            <Label Text="Nombre: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtNombre" TextColor="Black" Text="{Binding Nombre}" 
+                                   Placeholder="Ingresa el nombre del Trabajador" 
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Apellidos: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtApellidos" TextColor="Black" Text="{Binding Apellidos}" 
+                                   Placeholder="Ingresa el apellido paterno del trabajador" 
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Dni: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtDni" TextColor="Black" Text="{Binding Dni}"
+                                   Placeholder="Ingresa el dni del trabajador"
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <StackLayout Padding="15">
+                            <Label Text="Num. Celular: " TextColor="Black" FontSize="Large" FontAttributes="Bold" />
+                            <Entry x:Name="txtCel" TextColor="Black" Text="{Binding phone}"
+                                   Placeholder="Ingresa el número de celular del trabajador"
+                                   PlaceholderColor="LightGray" BackgroundColor="#D3D3D3" FontSize="Medium"/>
+                        </StackLayout>
+
+                        <Picker x:Name="cmbCargo" Title="Seleccionar cargo">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Administrador</x:String>
+                                    <x:String>Cajero</x:String>
+                                    <x:String>Mesero</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <ActivityIndicator x:Name="indicator" Color="Green" VerticalOptions="Center" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnRegistrar" Text="Registrar" Order="Primary" Priority="0" Clicked="btnRegistrar_Clicked"/>
+        <ToolbarItem x:Name="btnEliminar" Text="Eliminar" Order="Primary" Priority="1" Clicked="btnEliminar_Clicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>
